@@ -24,7 +24,7 @@ const getActivityNumber = () => {
 
   } else if(TotalActivityNumber > 50) {
     errorMessage.style.display = "block";
-    errorMessage.innerText = "Please Enter Activity number betwenn 50"
+    errorMessage.innerText = "Please Enter Activity number between 50"
   } else {
     errorMessage.style.display = "block";
   }
