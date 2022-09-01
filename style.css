@@ -15,8 +15,8 @@ body {
 }
 
 .activityInputContainer {
-  width: 380px;
-  height: 280px;
+  width: 540px;
+  height: 345px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,28 +30,28 @@ body {
 
 .activityInputContainer label {
   color: white;
-  font-size: 1.6rem;
-  margin: 10px;
+  font-size: 2.3rem;
+  margin: 15px;
   font-weight: 500;
   text-shadow: 1px 1px 3px rgb(234, 78, 210);
+  margin-bottom: 15px;
 }
 
 #errorMessage {
-  color: rgb(168, 23, 23);
-  font-weight: 400;
-  font-size: 1.3rem;
+  color: red;
+  font-size: 1.8rem;
   margin: 0px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   display: none;
 }
 
 .activityInputContainer input {
-  max-width: 180px;
-  padding: 5px;
+  max-width: 200px;
+  padding: 10px;
   border: none;
   outline: none;
   border-radius: 5px;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-align: center;
   font-weight: 700;
 }
@@ -60,7 +60,7 @@ body {
   padding: 10px;
   border: none;
   border-radius: 10px;
-  margin: 20px;
+  margin: 26px;
   font-size: 1.5rem;
   background-color: transparent;
   box-shadow: 1px 1px 4px 1px #c1deae;
