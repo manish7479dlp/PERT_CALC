@@ -66,14 +66,15 @@ const boilerPlateOfPartialAnserTable = () => {
   const caption = document.createElement("caption");
   caption.innerHTML = "Calculation of t<sub>e</sub> & t<sub>p</sub>"
 
+  parentTable.appendChild(caption);
   
   const tr1 = document.createElement("tr");
   const firstHeadingMarkup = `<th style="font-size: 3rem;" rowspan="2">Activity</th>
   <th colspan="5">Extimated Duration in Weeks</th>`
   tr1.innerHTML = firstHeadingMarkup;
   parentTable.appendChild(tr1);
+
   
-  parentTable.appendChild(caption);
 
   const tr2 = document.createElement("tr");
   const headingMarkup = `<th>Optimistic ( t<sub>o</sub> )</th>
