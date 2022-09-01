@@ -12,7 +12,7 @@ const getActivityNumber = () => {
 
   const TotalActivityNumber = parseInt(activityInput.value)
 
-  if (TotalActivityNumber) {
+  if (TotalActivityNumber <= 50) {
     errorMessage.style.display = "none";
     activityInputContainer.style.display = "none";
     inputDataTable.style.display = "block";
@@ -22,6 +22,9 @@ const getActivityNumber = () => {
         insertInputFieldInPERT()
     }
 
+  } else if(TotalActivityNumber > 50) {
+    errorMessage.style.display = "block";
+    errorMessage.innerText = "Please Enter Activity number betwenn 50"
   } else {
     errorMessage.style.display = "block";
   }
