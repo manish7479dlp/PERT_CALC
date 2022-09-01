@@ -74,7 +74,8 @@ body {
   font-weight: 600;
 }
 
-.inputDataTable {
+.inputDataTable,
+.partialAnswerTable {
   margin: 10vh;
   padding: 10px;
   border-radius: 20px;
@@ -83,19 +84,19 @@ body {
   overflow: hidden;
   padding: 20px;
   margin-top: 5vh;
+  text-align: center;
+
 }
 
-.inputDataTable table {
+table {
   width: 80%;
   border: 2px solid white;
   margin: auto;
   color: white;
-  /* border-radius: 20px; */
-  /* overflow: hidden; */
-
+  margin-bottom: 50px;
 }
 
-.inputDataTable table caption {
+table caption {
   color: white;
   text-shadow: 4px 3px 8px #219f94;
   font-size: 3.6rem;
@@ -104,17 +105,17 @@ body {
   margin-bottom: 10px;
 }
 
-.inputDataTable table th {
+table th {
   border: 2px solid #f2f5c8;
   padding: 5px;
   font-size: 1.8rem;
 }
-.inputDataTable table tr td {
+table tr td {
   padding: 10px;
   text-align: center;
 }
 
-.inputDataTable table tr td input {
+table tr td input {
   width: 80px;
   padding: 8px 5px;
   border-radius: 10px;
@@ -129,7 +130,43 @@ body {
   outline: none;
 }
 
-.inputDataTable table tr:nth-child(even) {
-    background-color: #219f95d3;
+table tr:nth-child(even) {
+  background-color: #219f95d3;
 }
+
+.submitInputDataButton {
+  font-size: 1.5rem;
+  border: none;
+  padding: 12px 34px;
+  border-radius: 28px;
+  text-align: center;
+  margin: 22px 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: goldenrod;
+  color: white;
+  text-decoration: none;
+}
+
+.submitInputDataButton:hover {
+  background-color: green;
+}
+.partialAnswerTable p {
+  display: inline-block;
+  width: 40px;
+  padding: 8px 5px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  background-color: transparent;
+  margin: auto;
+  margin: 0px 10px;
+  color: white;
+  outline: none;
+} 
+
+
+
 
