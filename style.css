@@ -1,0 +1,128 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("https://cutewallpaper.org/22/simple-background-wallpapers/2893722333.jpg");
+}
+#title {
+  color: white;
+  text-shadow: 4px 3px 8px purple;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.activityInputContainer {
+  width: 350px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  margin: auto;
+  border-radius: 20px;
+  background-color: #219f94;
+  margin-top: 20vh;
+}
+
+.activityInputContainer label {
+  color: white;
+  font-size: 1.6rem;
+  margin: 10px;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgb(234, 78, 210);
+}
+
+#errorMessage {
+  color: rgb(168, 23, 23);
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin: 0px;
+  margin-bottom: 8px;
+  display: none;
+}
+
+.activityInputContainer input {
+  max-width: 180px;
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.activityInputContainer button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin: 20px;
+  font-size: 1.5rem;
+  background-color: transparent;
+  box-shadow: 1px 1px 4px 1px #c1deae;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.activityInputContainer button:hover {
+  background-color: rgb(27, 230, 27);
+  font-weight: 600;
+}
+
+.inputDataTable {
+  /* background-color: white; */
+  margin: 10vh;
+  padding: 10px;
+  border-radius: 20px;
+  /* text-align: center; */
+}
+
+.inputDataTable table {
+  width: 80%;
+  border: 2px solid purple;
+  margin: auto;
+  color: white;
+}
+
+.inputDataTable table caption {
+  color: white;
+  text-shadow: 4px 3px 8px #219f94;
+  font-size: 3.6rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.inputDataTable table th {
+  border: 2px solid #f2f5c8;
+  padding: 5px;
+  font-size: 1.8rem;
+}
+.inputDataTable table tr td {
+  padding: 10px;
+  text-align: center;
+}
+
+.inputDataTable table tr td input {
+  width: 90px;
+  padding: 8px 5px;
+  border-radius: 20px;
+  border: 2px solid white;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background-color: transparent;
+  margin: auto;
+  margin: 0px 10px;
+  color: white;
+}
+
+.inputDataTable table tr:nth-child(even) {
+    background-color: purple;
+}
+
