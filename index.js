@@ -10,6 +10,11 @@ partialAnswerTable.style.display = "none";
 
 const activityInput = document.getElementById("activityInput");
 
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
 
 
 const insertPatialAnswer = (internalData) => {
@@ -53,7 +58,49 @@ const insertPatialAnswer = (internalData) => {
   document.getElementsByClassName("calculationteandtpTable")[0].appendChild(tr);
 };
 
+const boilerPlateOfPartialAnserTable = () => {
+  const parentTable = document.getElementsByClassName("calculationteandtpTable")[0];
+
+  removeAllChildNodes(parentTable)
+
+  const caption = document.createElement("caption");
+  caption.innerHTML = "Calculation of t<sub>e</sub> & t<sub>p</sub>"
+
+  
+  const tr1 = document.createElement("tr");
+  const firstHeadingMarkup = `<th style="font-size: 3rem;" rowspan="2">Activity</th>
+  <th colspan="5">Extimated Duration in Weeks</th>`
+  tr1.innerHTML = firstHeadingMarkup;
+  parentTable.appendChild(tr1);
+  
+  parentTable.appendChild(caption);
+
+  const tr2 = document.createElement("tr");
+  const headingMarkup = `<th>Optimistic ( t<sub>o</sub> )</th>
+  <th>MostLikely ( t<sub>m</sub> )</th>
+  <th>Pessimistic ( t<sub>p</sub> )</th>
+  <th> t<sub>e</sub> </th>
+  <th>t<sub>p</sub> </th>`
+
+  tr2.innerHTML = headingMarkup;
+  parentTable.appendChild(tr2);
+
+
+//   const tableHeading = `  <tr style="background-color: transparent;">
+  // <th>Optimistic ( t<sub>o</sub> )</th>
+  // <th>MostLikely ( t<sub>m</sub> )</th>
+  // <th>Pessimistic ( t<sub>p</sub> )</th>
+  // <th> t<sub>e</sub> </th>
+  // <th>t<sub>p</sub> </th>
+// </tr>`
+
+// partialAnswerTable.appendChild(tableHeading);
+
+}
+
 const submitActivityInputData = () => {
+
+  boilerPlateOfPartialAnserTable()
   partialAnswerTable.style.display = "block";
   const TotalActivityNumber = parseInt(activityInput.value);
 
