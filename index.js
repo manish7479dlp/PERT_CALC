@@ -45,11 +45,11 @@ const insertPatialAnswer = (internalData) => {
 
   </td>
   <td>
-      <p>${te}</p>
+      <p style="color:red;">${te}</p>
 
   </td>
   <td>
-      <p>${sigmaSqr}</p>
+      <p style="color:red;">${sigmaSqr}</p>
 
   </td>
 </tr>
