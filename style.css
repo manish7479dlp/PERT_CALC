@@ -152,7 +152,7 @@ table tr:nth-child(even) {
 .submitInputDataButton:hover {
   background-color: green;
 }
-.partialAnswerTable p {
+.partialAnswerTable p  {
   display: inline-block;
   width: 40px;
   padding: 8px 5px;
@@ -166,6 +166,18 @@ table tr:nth-child(even) {
   color: white;
   outline: none;
 } 
+
+#calculationOfForwardAndBackwardMoment td {
+  padding: 8px 5px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  background-color: transparent;
+  margin: auto;
+  margin: 0px 10px;
+  color: white;
+  outline: none;
+}
 
 
 
