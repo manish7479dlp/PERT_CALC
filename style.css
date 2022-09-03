@@ -96,7 +96,7 @@ table {
   margin-bottom: 50px;
 }
 
-table caption {
+table caption , #criticalPathTitle {
   color: white;
   text-shadow: 4px 3px 8px #219f94;
   font-size: 3.6rem;
@@ -177,6 +177,16 @@ table tr:nth-child(even) {
   margin: 0px 10px;
   color: white;
   outline: none;
+}
+
+#criticalPathContainer {
+  width: 100%;
+  display: block;
+  word-wrap: normal;
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 2px 2px 2px brown;
 }
 
 

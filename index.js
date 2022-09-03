@@ -163,6 +163,29 @@ const calcBackwardMoment = (data , arrSize ,backwardMomentInitialValue) => {
 
 }
 
+const displayCriticalPath = (forwardMoment , backwardMoment) => {
+   const criticalPathContainer = document.getElementById("criticalPathContainer");
+
+   removeAllChildNodes(criticalPathContainer)
+
+   let criticalPath = "";
+
+   for(let i = 1; i < forwardMoment.length; i++) {
+    if(forwardMoment[i] === backwardMoment[i]) {
+      if(criticalPath === "") {
+        criticalPath = i;
+      } else {
+        criticalPath = criticalPath + " ==> " + i;
+      }
+    }
+   }
+
+   const h2 = document.createElement("h2")
+   criticalPathContainer.innerText = criticalPath;
+
+  //  criticalPathContainer.appendChild(h2);
+}
+
 const submitActivityInputData = () => {
   boilerPlateOfPartialAnserTable();
   answerContainer.style.display = "block";
@@ -226,6 +249,9 @@ const submitActivityInputData = () => {
 
     calculationOfForwardAndBackwardMoment.appendChild(tr);
   }
+
+  displayCriticalPath(forwardMoment , backwardMoment);
+  
 };
 
 const insertInputFieldInPERT = () => {
