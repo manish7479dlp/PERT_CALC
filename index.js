@@ -231,6 +231,7 @@ const findProjectDurationAndProjectVarience = (
     expectedProjectDuration + " Weeks";
   projectLengthVarienceContainer.innerText = projectLengthVarience;
   projectLengthStandardDeviationContainer.innerHTML = Math.sqrt(projectLengthVarience)
+
 };
 
 const submitActivityInputData = () => {
@@ -371,3 +372,16 @@ const getActivityNumber = () => {
     errorMessage.style.display = "block";
   }
 };
+
+const getProbDay = () => {
+  const standardNormalVariableContentContainer = document.getElementById("standardNormalVariableContentContainer");
+  const probDayInputField = document.getElementById("probDayInputField");
+  const sigma = parseInt(document.getElementById("projectLengthStandardDeviationContainer").innerText);
+  const te = parseInt(document.getElementById("expectedProjcetDurationContainer").innerText)
+
+  
+  const Z = (parseInt(probDayInputField.value) - te) / parseFloat(sigma);
+
+  standardNormalVariableContentContainer.innerText = "Z = " + Z;
+
+}
