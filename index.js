@@ -136,20 +136,19 @@ const calcForwardMoment = (data, arrSize) => {
   return forwardMoment;
 };
 
-const calcBackwardMoment = (data , arrSize ,backwardMomentInitialValue) => {
+const calcBackwardMoment = (data, arrSize, backwardMomentInitialValue) => {
   let backwardMoment = new Array(arrSize);
-  
-  for(let i = 0; i < backwardMoment.length; i++) {
+
+  for (let i = 0; i < backwardMoment.length; i++) {
     backwardMoment[i] = 0;
   }
 
-  backwardMoment[backwardMoment.length -1] = backwardMomentInitialValue; 
+  backwardMoment[backwardMoment.length - 1] = backwardMomentInitialValue;
 
-    for (let i = data.length - 1; i >= 0; i--) {
+  for (let i = data.length - 1; i >= 0; i--) {
     sEvent = parseInt(data[i].sEvent);
     lEvent = parseInt(data[i].lEvent);
     te = parseInt(data[i].te);
-
 
     if (
       backwardMoment[sEvent] == 0 ||
@@ -160,35 +159,35 @@ const calcBackwardMoment = (data , arrSize ,backwardMomentInitialValue) => {
   }
 
   return backwardMoment;
+};
 
-}
+const displayCriticalPath = (forwardMoment, backwardMoment) => {
+  const criticalPathContainer = document.getElementById(
+    "criticalPathContainer"
+  );
 
-const displayCriticalPath = (forwardMoment , backwardMoment) => {
-   const criticalPathContainer = document.getElementById("criticalPathContainer");
+  removeAllChildNodes(criticalPathContainer);
 
-   removeAllChildNodes(criticalPathContainer)
+  let criticalPath = "";
 
-   let criticalPath = "";
-
-   for(let i = 1; i < forwardMoment.length; i++) {
-    if(forwardMoment[i] === backwardMoment[i]) {
-      if(criticalPath === "") {
+  for (let i = 1; i < forwardMoment.length; i++) {
+    if (forwardMoment[i] === backwardMoment[i]) {
+      if (criticalPath === "") {
         criticalPath = i;
       } else {
         criticalPath = criticalPath + " ==> " + i;
       }
     }
-   }
+  }
 
-   const h2 = document.createElement("h2")
-   criticalPathContainer.innerText = criticalPath;
+  const h2 = document.createElement("h2");
+  criticalPathContainer.innerText = criticalPath;
 
   //  criticalPathContainer.appendChild(h2);
-}
+};
 
 const submitActivityInputData = () => {
   boilerPlateOfPartialAnserTable();
-  answerContainer.style.display = "block";
 
   const TotalActivityNumber = parseInt(activityInput.value);
 
@@ -209,6 +208,20 @@ const submitActivityInputData = () => {
       tm: innerChild[2].children[0].value,
       tp: innerChild[3].children[0].value,
     };
+
+    if (
+      internalData.sEvent &&
+      internalData.lEvent &&
+      internalData.to &&
+      internalData.tm &&
+      internalData.tp
+    ) {
+      answerContainer.style.display = "block";
+    } else {
+      alert("Plz fill all the fields.");
+
+      return;
+    }
 
     if (internalData.lEvent > MAX) {
       MAX = internalData.lEvent;
@@ -231,14 +244,16 @@ const submitActivityInputData = () => {
   }
 
   const forwardMoment = calcForwardMoment(data, parseInt(MAX) + 1);
-  const backwardMoment = calcBackwardMoment(data , parseInt(MAX) + 1 , forwardMoment[forwardMoment.length - 1]);
-
-
+  const backwardMoment = calcBackwardMoment(
+    data,
+    parseInt(MAX) + 1,
+    forwardMoment[forwardMoment.length - 1]
+  );
 
   // add caption and th data into forward and backward calculation table
   boilerPlateOfFWAndBWMoment();
 
-  for (let i = 1; i < TotalActivityNumber; i++) {
+  for (let i = 1; i <= TotalActivityNumber; i++) {
     const tr = document.createElement("tr");
     const markup = `
      <td>${i}</td>
@@ -250,8 +265,7 @@ const submitActivityInputData = () => {
     calculationOfForwardAndBackwardMoment.appendChild(tr);
   }
 
-  displayCriticalPath(forwardMoment , backwardMoment);
-  
+  displayCriticalPath(forwardMoment, backwardMoment);
 };
 
 const insertInputFieldInPERT = () => {
