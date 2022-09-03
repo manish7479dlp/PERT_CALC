@@ -186,6 +186,53 @@ const displayCriticalPath = (forwardMoment, backwardMoment) => {
   //  criticalPathContainer.appendChild(h2);
 };
 
+const findProjectDurationAndProjectVarience = (
+  data,
+  forwardMoment,
+  backwardMoment
+) => {
+  const expectedProjcetDurationContainer = document.getElementById(
+    "expectedProjcetDurationContainer"
+  );
+  const projectLengthVarienceContainer = document.getElementById(
+    "projectLengthVarienceContainer"
+  );
+  const projectLengthStandardDeviationContainer = document.getElementById(
+    "projectLengthStandardDeviationContainer"
+  );
+
+  removeAllChildNodes(expectedProjcetDurationContainer);
+  removeAllChildNodes(projectLengthVarienceContainer);
+  removeAllChildNodes(projectLengthStandardDeviationContainer);
+
+  const flag = new Array(forwardMoment.length);
+
+  for (let i = 1; i < flag.length; i++) {
+    if (forwardMoment[i] === backwardMoment[i]) {
+      flag[i] = true;
+    } else {
+      flag[i] = false;
+    }
+  }
+
+  console.log(flag);
+
+  let expectedProjectDuration = 0;
+  let projectLengthVarience = 0;
+
+  for (let i = 0; i < data.length; i++) {
+    if (flag[data[i].sEvent] && flag[data[i].lEvent]) {
+      expectedProjectDuration += parseInt(data[i].te);
+      projectLengthVarience += parseInt(data[i].sigmaSqr);
+    }
+  }
+
+  expectedProjcetDurationContainer.innerText =
+    expectedProjectDuration + " Weeks";
+  projectLengthVarienceContainer.innerText = projectLengthVarience;
+  projectLengthStandardDeviationContainer.innerHTML = Math.sqrt(projectLengthVarience)
+};
+
 const submitActivityInputData = () => {
   boilerPlateOfPartialAnserTable();
 
@@ -219,7 +266,6 @@ const submitActivityInputData = () => {
       answerContainer.style.display = "block";
     } else {
       alert("Plz fill all the fields.");
-
       return;
     }
 
@@ -253,7 +299,7 @@ const submitActivityInputData = () => {
   // add caption and th data into forward and backward calculation table
   boilerPlateOfFWAndBWMoment();
 
-  for (let i = 1; i <= TotalActivityNumber; i++) {
+  for (let i = 1; i < forwardMoment.length; i++) {
     const tr = document.createElement("tr");
     const markup = `
      <td>${i}</td>
@@ -266,6 +312,8 @@ const submitActivityInputData = () => {
   }
 
   displayCriticalPath(forwardMoment, backwardMoment);
+
+  findProjectDurationAndProjectVarience(data, forwardMoment, backwardMoment);
 };
 
 const insertInputFieldInPERT = () => {

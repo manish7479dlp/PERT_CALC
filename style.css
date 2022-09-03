@@ -96,7 +96,7 @@ table {
   margin-bottom: 50px;
 }
 
-table caption , #criticalPathTitle {
+table caption , #criticalPathTitle , #projectDurationTitle, #projectLengthVarienceTitle {
   color: white;
   text-shadow: 4px 3px 8px #219f94;
   font-size: 3.6rem;
@@ -179,7 +179,7 @@ table tr:nth-child(even) {
   outline: none;
 }
 
-#criticalPathContainer {
+#criticalPathContainer , #expectedProjcetDurationContainer , #projectLengthVarienceContainer , #projectLengthStandardDeviationContainer {
   width: 100%;
   display: block;
   word-wrap: normal;
